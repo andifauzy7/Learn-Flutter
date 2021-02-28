@@ -42,7 +42,50 @@ class _MyAppState extends State<MyApp> {
                   end: FractionalOffset.topRight)),
         ),
       ),
-      body: Container(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextField(
+            controller: _pencarian,
+            onChanged: (value) {
+              setState(() {});
+            },
+          ),
+          Text(_pencarian.text),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Icon(
+                    Icons.home,
+                    size: 75.0,
+                  ),
+                ),
+              ),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Icon(
+                    Icons.settings,
+                    size: 75.0,
+                  ),
+                ),
+              ),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Icon(
+                    Icons.upload_file,
+                    size: 75.0,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
     ));
   }
 }
