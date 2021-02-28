@@ -10,8 +10,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  TextEditingController _pencarian =
-      new TextEditingController(text: "Pencarian .... ");
+  TextEditingController _pencarian = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +41,58 @@ class _MyAppState extends State<MyApp> {
                   end: FractionalOffset.topRight)),
         ),
       ),
-      body: Container(),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: TextField(
+              decoration: InputDecoration(
+                  hintText: "Pencarian ...",
+                  icon: Icon(Icons.search),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5))),
+              controller: _pencarian,
+              maxLength: 5,
+              onChanged: (value) {
+                setState(() {});
+              },
+            ),
+          ),
+          Text(_pencarian.text),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Icon(
+                    Icons.home,
+                    size: 75.0,
+                  ),
+                ),
+              ),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Icon(
+                    Icons.settings,
+                    size: 75.0,
+                  ),
+                ),
+              ),
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Icon(
+                    Icons.upload_file,
+                    size: 75.0,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
     ));
   }
 }

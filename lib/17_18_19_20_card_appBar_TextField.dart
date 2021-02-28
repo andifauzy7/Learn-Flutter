@@ -10,8 +10,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  TextEditingController _pencarian =
-      new TextEditingController(text: "Pencarian .... ");
+  TextEditingController _pencarian = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +42,21 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextField(
-            controller: _pencarian,
-            onChanged: (value) {
-              setState(() {});
-            },
+          Padding(
+            padding: const EdgeInsets.all(24.0),
+            child: TextField(
+              decoration: InputDecoration(
+                  hintText: "Pencarian ...",
+                  icon: Icon(Icons.search),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5))),
+              controller: _pencarian,
+              maxLength: 5,
+              onChanged: (value) {
+                setState(() {});
+              },
+            ),
           ),
           Text(_pencarian.text),
           Row(
